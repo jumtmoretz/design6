@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>::선병원::</title>
+    
+    <!-- 폰트 링크 -->
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            border: 0;
+        }
+    </style>
+    
+    <style>
+        .main {
+            width: 100%;
+            height: 100%;
+            
+        }
+        #hd {
+            position: fixed;
+            width: 100%;
+            height: 100px;
+            background-color: #26292b;
+            z-index: 99999;
+        }
+        .logo img {
+            display: block;
+            width: 138px;
+            height: auto;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .gnbMenu {
+            position: absolute;
+            top: 100px;
+            height: auto;
+            width: 100%;
+            background-color:#26292b;
+        }
+        .gnb {
+            width: 30%;
+            margin: 0 auto;
+            font-family: 'Jua', sans-serif;
+        }
+        .gnb li {
+            float: left; 
+        }
+        .gnb li a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            width: 140px;
+            height: 40px;
+            margin-top: 0;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .gnb li .a:hover {
+            color: deeppink;
+        }
+        .sub {
+            display: none;
+        }
+        .sub li {
+            float: none;
+            width: 140px;
+            height: 40px;
+        }
+        .sub li a {
+            display: block;
+            color: #fff;
+            transition: 0.5s;
+        }
+        .sub li a:hover {
+            color: deeppink;
+        }
+        .sns a {
+            display: block;
+            width: 30px;
+            height: 30px;
+
+            float: left;
+            position: absolute;
+        }
+        .snsIcon1 {
+            background-image: url("./images/sns1.png");
+            right: 200px;
+        }
+        .snsIcon2 {
+            background-image: url("./images/sns2.png");
+            right: 150px;
+        }
+        .snsIcon3 {
+            background-image: url("./images/sns3.png");
+            right: 100px;
+        }
+        #vs {
+            width: 100%;
+            height: 100%;
+            background-color:#26292b;
+            position: relative;
+            overflow: hidden;
+        }
+        #vs video {
+            display: block;
+            background-color:#26292b;
+            position: absolute;
+            top: 0; 
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: 1;
+            opacity: 0.3;
+        }
+        .vsTit {
+            position: absolute;
+            top: 440px;
+            color: #fff;
+            font-family: 'Bellefair', serif;
+            font-weight: 100;
+            font-size: 50px;
+            text-align: center;
+            left: 840px;
+            z-index: 100;
+        }
+    </style>
+    
+    <style>
+        .con1 {
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .con1Tit {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            text-shadow: 0px -1px 20px #0b314e;
+            color: #fff;
+            font-size: 40px;
+            text-align: center;
+            line-height: 50px;
+            margin-top: 40px;
+        }
+        .left {
+            position: relative;
+            top: 150px;
+            left: 300px;
+            width: 581px;
+            height: 720px;
+            background-image: url("./images/con1leftBg.png");
+            opacity: 0;
+            transition: 1.2s;
+        }
+        .con1leftTit {
+            display: block;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .leftMore {
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        .leftTxt {
+            color: #333;
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            position: absolute;
+            top: 120px;
+            left: 70px;
+        }
+        .leftTxtDot {
+            display: block;
+            position: absolute;
+            top: 350px;
+            left: 280px;
+        }
+        .con1LeftImg {
+            display: block;
+            position: absolute;
+            width: 270px;
+            height: auto;
+            top: 460px;
+        }
+        .con1LeftImg1 {
+            left: 30px;
+        }
+        .con1LeftImg2 {
+            right: 30px;
+        }
+        .right {
+            float: right;
+            position: relative;
+            top: -770px;
+            right: 311px;
+            width: 581px;
+            height: 720px;
+            background-image: url("./images/con1RigthBg.png");
+            opacity: 0;
+            transition: 1.2s;
+        }
+        .con1RightTit {
+            display: block;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .rightMore {
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        .rightTxtDot {
+            display: block;
+            position: absolute;
+            top: 350px;
+            left: 280px;
+        }
+        .rightMenu1 {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 150px;
+            left: 70px;
+        }
+        .rightMenu1 li {
+            float: left;
+            margin-right: 160px;
+        }
+        .rightMenu1 li a {
+            display: block;
+            color: #d52462;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.5s;
+        }
+        .rightMenu1 li a:hover {
+            color: #fff;
+        }
+        .rightMenu2 {
+            width: 120%;
+            height: auto;
+            position: absolute;
+            top: 230px;
+            left: 70px;
+        }
+        .rightMenu2 li {
+            float: left;
+            margin-right: 123px;
+        }
+        .rightMenu2 li a {
+            display: block;
+            color: #d52462;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.5s;
+        }
+        .rightMenu2 li a:hover {
+            color: #fff;
+        }
+    </style>
+    
+    <style>
+        .con2 {
+            width: 100%;
+            height: 475px;
+            background-image: url("./images/con2Bg.png");
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .con2Tit {
+            font-weight: bold;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 0px -1px 20px #0b314e;
+            color: #fff;
+            position: absolute;
+            left: 853px;
+            top: 40px;
+            font-size: 40px;
+        }
+        .con2Txt {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            text-shadow: 0px -1px 20px #0b314e;
+            color: #fff;
+            position: absolute;
+            left: 720px;
+            top: 110px;
+            font-size: 13px;
+        }
+        .line {
+            width: 80%;
+            height: 10px;
+            border-bottom: 2px solid #fff;
+            position: absolute;
+            left: 120px;
+            top: 270px;
+        }
+        .lineClick {
+            width: 10px;
+            height: 10px;
+            border: 3px solid #fff;
+            border-radius: 10px;
+            position: absolute;
+            left: 135px;
+            top: 273px;
+            transition: 0.8s;
+            cursor: pointer;
+        }
+        .lineClick:hover {
+            border: 3px solid #e71441;
+        }
+        .click2 {
+            left: 200px;
+        }
+        .click3 {
+            left: 350px;
+        }
+        .click4 {
+            left: 480px;
+        }
+        .click5 {
+            left: 650px;
+        }
+        .click6 {
+            left: 780px;
+        }
+        .click7 {
+            left: 860px;
+        }
+        .click8 {
+            left: 1100px;
+        }
+        .clickTit {
+            display: block;
+            font-size: 40px;
+            color: #fff;
+            text-shadow: 1px 1px 1px #333;
+            font-family: 'Playfair Display', serif;
+            position: absolute;
+            top: 210px;
+            transition: 0.8s;
+        }
+        .clickTit1 {
+            left: 100px;
+        }
+        .clickTit2 {
+            left: 170px;
+            top: 290px;
+        }
+        .clickTit3 {
+            left: 320px;
+        }
+        .clickTit4 {
+            left: 400px;
+            top: 290px;
+        }
+        .clickTit5 {
+            left: 620px;
+        }
+        .clickTit6 {
+            left: 750px;
+            top: 290px;
+        }
+        .clickTit7 {
+            left: 790px;
+        }
+        .clickTit8 {
+            left: 1070px;
+            top: 290px;
+        }
+        .click1:hover ~ .clickTit1 {
+            color: #e71441;
+        }
+        .click2:hover ~ .clickTit2 {
+            color: #e71441;
+        }
+        .click3:hover ~ .clickTit3 {
+            color: #e71441;
+        }
+        .click4:hover ~ .clickTit4 {
+            color: #e71441;
+        }
+        .click5:hover ~ .clickTit5 {
+            color: #e71441;
+        }
+        .click6:hover ~ .clickTit6 {
+            color: #e71441;
+        }
+        .click7:hover ~ .clickTit7 {
+            color: #e71441;
+        }
+        .click8:hover ~ .clickTit8 {
+            color: #e71441;
+        }
+        .clickCon {
+            width: 500px;
+            height: 200px;
+            text-align: center;
+            color: #fff;
+            line-height: 70px;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            left: 700px;
+            top: 2020px;
+            display: none;
+            font-family: 'Jua', sans-serif;
+            text-shadow: 0px -1px 20px #0b314e;
+        }
+    </style>
+    
+    <style>
+        #ft {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            background-color: #555555;
+        }
+        .ftLst1 {
+            width: 100%;
+            height: 50px;
+            background-color: #444444;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .ftLst1 ul li {
+            float: left;
+            margin: 17px;
+        }
+        .ftLst1 li a {
+            display: block;
+            color: #fff;
+            font-size: 10px;
+        }
+        .ftLst2 {
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            left: 0px;
+            top: 50px;
+        }
+        .ftLst2 ul {
+            margin-left: 80px;
+        }
+        .ftLst2 ul li {
+            float: left;
+            margin: 10px;
+            margin-top: 60px;
+        }
+        .ftLst2 li a {
+            display: block;
+            color: #fff;
+            font-size: 13px;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        .address {
+            display: block;
+            color: #fff;
+            font-size: 14px;
+            position: absolute;
+            top: 200px;
+            left: 760px;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        .copyright {
+            display: block;
+            color: #fff;
+            font-size: 14px;
+            position: absolute;
+            top: 230px;
+            left: 735px;
+        }
+    </style>
+    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+         $(document).ready(function(){
+             $(".a").removeAttr("href");
+            $(".gnb li .a").click(function(){
+                $(".sub").slideToggle(500);
+            });
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+            $(".lineClick").removeAttr("href");
+            $(".lineClick").click(function(){
+                $(".con2").css("opacity", "0.8");
+                $(".clickCon").slideDown(500).css("opacity", "1");
+            });
+            $(".clickCon").click(function(){
+                $(".con2").css("opacity", "1");
+                $(".clickCon").slideUp(500).css("opacity", "0");
+            });
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            var ht = parseInt($(window).height());
+            var ht2 = ht-550;
+            console.log("창의높이 : " + ht);
+            $(window).on("mousewheel", function(e){
+                if(e.originalEvent.wheelDelta < 0){ // 아래 스크롤
+                    $("html, body").not(":animated").animate({scrollTop: "+=" + ht2 + "px" }, 500);
+                } else {
+                    $("html, body").not(":animated").animate({scrollTop: "-=" + ht2 + "px"}, 500);
+                }
+                return false;
+            });
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+            $("#vs").on("mousewheel", function(){
+                $(".left").css("opacity", "1");
+                $(".right").css("opacity", "1");
+                $(".left").not(":animated").animate({"top": "50px", "left": "270px"}, 1200);
+                $(".right").not(":animated").animate({"top": "-670px" , "right": "281px"}, 1200);
+            });
+           
+        });
+    </script>
+    
+</head>
+<body>
+    <div class="main">
+        <header id="hd">
+               <a href="" class="logo">
+                <img src="./images/logo.png" alt="로고">
+                </a>
+                <div class="gnbMenu">
+                    <ul class="gnb">
+                        <li><a href="" class="a">진료 예약</a>
+                        <ul class="sub">
+                                <li><a href="#">검진예약</a></li>
+                                <li><a href="#">외국인예약</a></li>
+                                <li><a href="#">상담예약</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="" class="a">진료 안내</a>
+                        <ul class="sub">
+                                <li><a href="#">외래진료</a></li>
+                                <li><a href="#">센터진료</a></li>
+                                <li><a href="#">진료과안내</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="" class="a">고객 서비스</a>
+                        <ul class="sub">
+                                <li><a href="#">1:1상담</a></li>
+                                <li><a href="#">건강매거진</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="" class="a">병원 소식</a>
+                        <ul class="sub">
+                                <li><a href="">이벤트</a></li>
+                                <li><a href="">게시판</a></li>
+                                <li><a href="">웹진</a></li>
+                                <li><a href="">갤러리</a></li>
+                        </ul>
+                        </li>
+                    </ul>       
+                </div>
+
+                <div class="sns">
+                    <a href="#" class="snsIcon1"></a>
+                    <a href="#" class="snsIcon2"></a>
+                    <a href="#" class="snsIcon3"></a>
+                </div>
+            </header>
+            
+            <div id="vs">
+                <video src="video.mp4" autoplay loop></video>
+                <h2 class="vsTit">SUN<br>MEDICAL<br>CENTER</h2>
+            </div>
+            
+            <div class="con1">
+                <h1 class="con1Tit">SUN<br>GLOBAL CENTER</h1>
+                <div class="left">
+                    <img src="./images/con1leftTit.png" alt="" class="con1leftTit">
+                    <a href="" class="leftMore"><img src="./images/con1More.png" alt=""></a>
+                    <span class="leftTxt">선병원재단(이사장 선두훈) 대전선병원과 유성선병원이<br>
+추석 연휴기간 동안 지역 의료기관 휴진에 따른 불편을 최소화하고<br>
+응급환자 발생에 대비하기 위해 24~25일 응급실 24시간 비상진료 체계를 가동한다.<br>
+26일에는 정상진료한다.<br>
+<br><br>
+선병원은 응급의학과를 비롯해 필요에 따라 내과, 외과 전문의가 동시에 진료에 나서<br>
+응급환자 등 진료가 필요한 환자들을 신속하게 대처한다는 계획이다.<br>
+또한 응급 전용 CT와 MRI, 혈관촬영실 등 진단장비가 별도 배치돼 있어<br>
+완벽한 원스톱 진료 시스템이 가동된다.<br>
+특히, 대전선병원은 대전‧충청권에서 유일하게 구강외과 의료진이<br>
+24시간 상주해 교통사고 등으로 인한 턱과 얼굴, 구강 및 치아손상 환자 발생 시<br>
+즉각 진료에 나선다. <br>
+</span>
+                    <img src="./images/conDot.png" alt="" class="leftTxtDot">
+                    <img src="./images/con1LeftImg1.png" alt="" class="con1LeftImg con1LeftImg1">
+                    <img src="./images/con1LeftImg2.png" alt="" class="con1LeftImg con1LeftImg2">
+                </div>
+                
+                <div class="right">
+                    <img src="./images/con1RightTit.png" alt="" class="con1RightTit">
+                    <a href="" class="rightMore"><img src="./images/con1More.png" alt=""></a>
+                    <ul class="rightMenu1">
+                        <li><a href="">건강검진예약</a></li>
+                        <li><a href="">외국인환자예약</a></li>
+                    </ul>
+                       <ul class="rightMenu2">
+                        <li><a href="">온라인증명서발급</a></li>
+                        <li><a href="">환자경험평가(설문)</a></li>
+                    </ul>
+                    <img src="./images/conDot.png" alt="" class="rightTxtDot">
+                </div>
+            </div>
+            
+            <div class="con2">
+                <h2 class="con2Tit">기업연혁</h2>
+                <h2 class="con2Txt">병원에 대한 신뢰도를 고객에게 항상 1위로 성장하는 모습을 보여드리겠습니다.</h2>
+                <span class="line"></span>
+                <a href="" class="lineClick click1"></a>
+                <a href="" class="lineClick click2"></a>
+                <a href="" class="lineClick click3"></a>
+                <a href="" class="lineClick click4"></a>
+                <a href="" class="lineClick click5"></a>
+                <a href="" class="lineClick click6"></a>
+                <a href="" class="lineClick click7"></a>
+                <a href="" class="lineClick click8"></a>
+                <span class="clickTit clickTit1">2018</span>
+                <span class="clickTit clickTit2">2016</span>
+                <span class="clickTit clickTit3">2015</span>
+                <span class="clickTit clickTit4">2012~2013</span>
+                <span class="clickTit clickTit5">2015</span>
+                <span class="clickTit clickTit6">1997</span>
+                <span class="clickTit clickTit7">1985~1990</span>
+                <span class="clickTit clickTit8">1982</span>
+                
+            </div>
+            <div class="clickCon">
+                    <span class="clickTxt">유성선병원, 대장암 치료 잘하는 병원 1등급<br>유성선병원, 뇌졸중 치료 잘하는 병원 1등급<br>유성선병원 증축 완공</span>
+                </div>
+                
+            
+            <footer id="ft">
+                <div class="ftLst1">
+                    <ul>
+                        <li><a href="">국제검진센터</a></li>
+                        <li><a href="">귀코목센터</a></li>
+                        <li><a href="">뇌졸중센터</a></li>
+                        <li><a href="">메디컬스킨센터</a></li>
+                        <li><a href="">부인암센터</a></li>
+                        <li><a href="">소화기센터</a></li>
+                        <li><a href="">심장부정맥센터</a></li>
+                        <li><a href="">암센터</a></li>
+                        <li><a href="">운방부클리닉</a></li>
+                        <li><a href="">응급의료센터</a></li>
+                        <li><a href="">치과센터</a></li>
+                    </ul>
+                </div>
+                <div class="ftLst2">
+                    <ul>
+                        <li><a href="">웹사이트회원약관</a></li>
+                        <li><a href="">개인정보취급방침</a></li>
+                        <li><a href="">환자의권리와의무</a></li>
+                        <li><a href="">웹진</a></li>
+                        <li><a href="">비급여진료비안내</a></li>
+                    </ul>
+                </div>
+                <span class="address">대전광역시 유성구 북유성대로 93(대전광역시 유성구 지족동 923)</span>
+                <span class="copyright">Copyright 2018 by Sun General hospital. All rights reserved.</span>
+            </footer>
+    </div>
+</body>
+</html>
